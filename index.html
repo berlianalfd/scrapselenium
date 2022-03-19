@@ -36,14 +36,13 @@
             $.get('hasilselenium.json',function(obj){
                 var str = "<table border=1>";
               str +=
-                "<tr><td>NO</td><td class='tables'>Image<td class='tables'>RATE</td><td class='tables'>TITLE</td><td class='tables'>RELEASE</td><td class='tables'>DESCRIPTION</tr><td class='tables'>TimeScrap</tr>";
+                "<tr><td>NO</td><td class='tables'>Image<td class='tables'>RATE</td><td class='tables'>TITLE</td><td class='tables'>RELEASE</td><td class='tables'>TimeScrap</tr>";
               $.each(obj, function (n, data) {
                 str += "<td class='tables'>" + data.NO + "</td>";
                 str += '<td><img src="' + data.Image + '"></td>';
                 str += "<td class='tables'>" + data.RATE + "</td>";
                 str += "<td class='tables'>" + data.TITLE + "</td>";
                 str += "<td class='tables'>" + data.RELEASE + "</td>";
-                str += "<td class='tables'>" + data.DESCRIPTION + "</td>";
                 str += "<td class='tables'>" + data.TimeScrap + "</td></tr>";
               });
               str += "</table>";
