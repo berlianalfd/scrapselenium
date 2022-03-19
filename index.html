@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>Web Scrapping Selenium</title>
+        <!--Import library jquery-->
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  </head>
+
+   <style>h1 {text-align: center;}
+            table {align: center;}
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+              }
+              
+              td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+              }
+              
+              tr:nth-child(even) {
+                background-color: #D8BFD8;
+              }
+    </style>
+
+    <body>
+        <h1>TV Show Releases by User Rate</h1>
+        <div id="hasilselenium_json"></div>
+  </body>
+    <script type="text/javascript">
+        $(function(){
+            //mengambil data dari file json
+            $.get('hasilselenium.json',function(obj){
+                var str = "<table border=1>";
+              str +=
+                "<tr><td>NO</td><td class='tables'>Image<td class='tables'>RATE</td><td class='tables'>TITLE</td><td class='tables'>RELEASE</td><td class='tables'>DESCRIPTION</tr><td class='tables'>TimeScrap</tr>";
+              $.each(obj, function (n, data) {
+                str += "<td class='tables'>" + data.NO + "</td>";
+                str += '<td><img src="' + data.Image + '"></td>';
+                str += "<td class='tables'>" + data.RATE + "</td>";
+                str += "<td class='tables'>" + data.TITLE + "</td>";
+                str += "<td class='tables'>" + data.RELEASE + "</td>";
+                str += "<td class='tables'>" + data.DESCRIPTION + "</td>";
+                str += "<td class='tables'>" + data.TimeScrap + "</td></tr>";
+              });
+              str += "</table>";
+              $("#hasilselenium_json").html(str);
+            });
+        });
+    </script>
+  </body>
+</html>
